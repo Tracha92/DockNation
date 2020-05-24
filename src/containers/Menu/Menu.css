@@ -1,0 +1,23 @@
+.Menu {
+    display: flex;
+    height: 100%;
+    width: 20%;
+    overflow-y: auto;
+    min-height: 0;
+    flex-direction: column;
+
+    cursor: pointer;
+
+    border-width: 0 2px 0 0 ;
+    border-style: solid;
+    border-color: #0670c8;
+}
+
+.MenuItem {
+    padding: 20px;
+}
+
+.ActiveItem {
+    background-color: #0670c8;
+    color: #ffffff;
+}

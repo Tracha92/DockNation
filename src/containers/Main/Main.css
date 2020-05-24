@@ -1,0 +1,12 @@
+.Main {
+    background-color: #ffffff;
+    color: #0670c8;
+    display: flex;
+    min-width: 100%;
+    flex-direction: row;
+    height: 100%;
+    width: 20%;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0;
+}
