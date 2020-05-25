@@ -6,7 +6,7 @@ module.exports = {
         const res = await execShellCommand('docker network ls --format {{.Name}}');
         const networkListOutput = res.split('\n');
 
-        for (let line = 1; line < networkListOutput.length - 1; line++) {
+        for (let line = 0; line < networkListOutput.length - 1; line++) {
             networkList.push(networkListOutput[line]);
         }
 
@@ -35,7 +35,7 @@ module.exports = {
             gateway: ipamConfig.Gateway,
             containers: networkDetailsOutput.Containers
         }
-    }
+    },
 }
 
 function execShellCommand(cmd) {

@@ -10,7 +10,7 @@ app.get("/networks", async(req, res) => {
     let response = [];
 
     for (let network of networkList) {
-        if (network === 'host' || network === 'none') continue;
+        if (network === 'none') continue;
         response.push(await getDetails(network));
     }
 
