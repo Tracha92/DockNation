@@ -1,13 +1,17 @@
 .NetworkMenu {
+    height: 100%;
     border-width: 0 1px 0 0;
     border-style: solid;
     border-color: #0670c8;
-    overflow-y: auto;
+    overflow-y: scroll;
+    min-width: 120px;
+    max-width: 120px;
 }
 
 .NetworkMenuItem {
+    min-height: 50px;
     cursor: pointer;
-    padding: 5px 2px;
+    padding: 5px 5px;
     border-width: 0 0 1px;
     border-style: solid;
     border-color: #0670c8;
