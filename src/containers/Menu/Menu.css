@@ -1,7 +1,7 @@
 .Menu {
     display: flex;
     height: 100%;
-    width: 20%;
+    width: 15%;
     overflow-y: auto;
     min-height: 0;
     flex-direction: column;
@@ -13,11 +13,29 @@
     border-color: #0670c8;
 }
 
-.MenuItem {
-    padding: 20px;
+.MenuItem svg {
+    width: 40px!important;
 }
 
-.ActiveItem {
+.MenuItem {
+    font-size: 17px;
+    padding: 5px 0;
+}
+
+.MenuItem span {
+    border-left: 3px solid #0670c8;
+    padding: 5px 0 5px 10px;
+}
+
+.Menu .active span {
+    border-left: 3px solid #ffffff;
+}
+
+.Menu .active .MenuItem {
     background-color: #0670c8;
     color: #ffffff;
+}
+
+.Menu > a {
+    padding: 15px 0;
 }

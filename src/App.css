@@ -1,5 +1,32 @@
+@font-face {
+  font-family: mainFont;
+  src: url(utils/fonts.ttf);
+}
+
 html, body {
   height: 100%;
+  font-family: mainFont, serif;
+  font-weight: 500;
+}
+
+a:link {
+  text-decoration: none;
+  color: unset;
+}
+
+a:visited {
+  text-decoration: none;
+  color: unset;
+}
+
+a:hover {
+  text-decoration: none;
+  color: unset;
+}
+
+a:active {
+  text-decoration: none;
+  color: unset;
 }
 
 #root {
