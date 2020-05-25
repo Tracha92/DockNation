@@ -12,7 +12,7 @@ export default class Main extends React.Component {
                 <Router>
                     <Menu />
                     <Switch>
-                        <Route path="/" />
+                        <Route exact path="/" />
                         <Route path="/containers" />
                         <Route path="/images" />
                         <Route path="/networks" component={Network} />
