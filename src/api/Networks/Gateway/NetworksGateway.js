@@ -1,4 +1,4 @@
-const { exec } = require("child_process");
+let {execShellCommand} = require("./../../Common/Gateway/CommonGateway");
 
 module.exports = {
     list: async function() {
@@ -36,15 +36,4 @@ module.exports = {
             containers: networkDetailsOutput.Containers
         }
     },
-}
-
-function execShellCommand(cmd) {
-    return new Promise((resolve, reject) => {
-        exec(cmd, (error, stdout, stderr) => {
-            if (error) {
-                console.warn(error);
-            }
-            resolve(stdout? stdout : stderr);
-        });
-    });
 }
