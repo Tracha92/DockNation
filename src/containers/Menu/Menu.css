@@ -9,13 +9,17 @@
 
     cursor: pointer;
 
-    border-width: 0 2px 0 0 ;
+    border-width: 0 1px 0 0 ;
     border-style: solid;
     border-color: #0670c8;
 }
 
 .MenuItem svg {
     width: 40px!important;
+}
+
+.MenuItem:hover {
+    background-color: #88C8F9;
 }
 
 .MenuItem {

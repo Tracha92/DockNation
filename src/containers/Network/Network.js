@@ -1,4 +1,5 @@
 import React from "react";
+import './Network.css';
 
 export default class Network extends React.Component {
     constructor(props) {
@@ -30,22 +31,27 @@ export default class Network extends React.Component {
         if (!isLoaded) {
             return <div>Loading...</div>;
         }
+
         if (error) {
             return <div>Error: {error.message}</div>;
         }
 
-        return render(items)
+        return renderLoaded(items)
     }
 }
 
-function render(items) {
+const renderLoaded = (items) => {
     return (
-        <div>
-            {items.map(item => (
-                <div key={item.name}>
-                    {item.name} {item.gateway} {item.subnet}
-                </div>
-            ))}
+        <div className={'NetworkMenu'}>
+            <div className={'NetworkList'}>
+                {items.map(item => (
+                    <div key={item.name} className={"NetworkMenuItem"}>
+                        <span className={"NetworkMenuItemName"}>{item.name}</span>
+                        <span className={"NetworkMenuItemSubnet"}>{item.subnet}</span>
+                    </div>
+                ))}
+            </div>
+            <div className={'NetworkCreate'}>Add new network</div>
         </div>
     );
 }

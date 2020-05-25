@@ -1,0 +1,28 @@
+.NetworkMenu {
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: #0670c8;
+    overflow-y: auto;
+}
+
+.NetworkMenuItem {
+    cursor: pointer;
+    padding: 5px 2px;
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-color: #0670c8;
+}
+
+.NetworkMenuItem:hover {
+    background-color: #88C8F9;
+}
+
+.NetworkMenuItem:last-child {
+     border-width: 0;
+}
+
+.NetworkMenuItemName, .NetworkMenuItemGateway, .NetworkMenuItemSubnet {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+}
