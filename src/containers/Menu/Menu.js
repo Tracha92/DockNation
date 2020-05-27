@@ -3,7 +3,7 @@ import './Menu.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBoxOpen, faNetworkWired, faCogs, faClone } from '@fortawesome/free-solid-svg-icons'
 import { faDocker } from "@fortawesome/free-brands-svg-icons";
-import { NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 export default class Menu extends React.Component {
     render() {

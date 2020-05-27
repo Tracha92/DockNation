@@ -45,10 +45,10 @@ const renderLoaded = (items) => {
             <div className={'NetworkList'}>
                 {items.map(item => (
                     <div key={item.imageId} className={"NetworkMenuItem"}>
-                        <span className={"NetworkMenuItemName"}>{item.repository}:{item.tag}</span>
-                        <span className={"NetworkMenuItemName"}>{item.imageId}</span>
-                        <span className={"NetworkMenuItemSubnet"}>{item.createdAt}</span>
-                        <span className={"NetworkMenuItemSubnet"}>{item.size}</span>
+                        <span className={"NetworkMenuItemName"}>{item.Repository}:{item.Tag}</span>
+                        <span className={"NetworkMenuItemName"}>{item.ID}</span>
+                        <span className={"NetworkMenuItemSubnet"}>{item.CreatedSince}</span>
+                        <span className={"NetworkMenuItemSubnet"}>{item.Size}</span>
                     </div>
                 ))}
             </div>

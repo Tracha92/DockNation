@@ -7,12 +7,10 @@ module.exports = {
             exec(cmd, (error, stdout, stderr) => {
                 if (error) {
                     console.warn(error);
+                    reject(error);
                 }
                 resolve(stdout ? stdout : stderr);
             });
         });
-    },
-    parseTemplate: (template) => {
-        return JSON.stringify(JSON.stringify(template))
     }
 }
