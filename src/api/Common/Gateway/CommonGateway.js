@@ -11,5 +11,8 @@ module.exports = {
                 resolve(stdout ? stdout : stderr);
             });
         });
+    },
+    parseTemplate: (template) => {
+        return JSON.stringify(JSON.stringify(template))
     }
 }
