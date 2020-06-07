@@ -1,5 +1,8 @@
 import React from "react";
 import './Network.css';
+import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {NavLink} from "react-router-dom";
 
 export default class Network extends React.Component {
     constructor(props) {
@@ -51,7 +54,9 @@ const renderLoaded = (items) => {
                     </div>
                 ))}
             </div>
-            <div className={'NetworkCreate'}>Add new network</div>
+            <NavLink to="/networks/create" className={'NetworkCreate'}>
+                <FontAwesomeIcon icon={faPlusCircle}/>Add new network
+            </NavLink>
         </div>
     );
 }
