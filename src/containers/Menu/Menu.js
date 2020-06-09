@@ -23,7 +23,7 @@ const ImagesMenuItem = () => {
             <FontAwesomeIcon icon={faClone}/><span>Images</span>
         </div>
     </NavLink>
-}
+};
 
 const ContainersMenuItem = () => {
     return <NavLink to="/containers">
@@ -31,7 +31,7 @@ const ContainersMenuItem = () => {
             <FontAwesomeIcon icon={faBoxOpen}/><span>Containers</span>
         </div>
     </NavLink>
-}
+};
 
 const NetworksMenuItem = () => {
     return <NavLink to={'/networks'}>
@@ -39,7 +39,7 @@ const NetworksMenuItem = () => {
             <FontAwesomeIcon icon={faNetworkWired}/><span>Networks</span>
         </div>
     </NavLink>
-}
+};
 
 const DockerHubMenuItem = () => {
     return <NavLink to="/dockerhub">
@@ -47,7 +47,7 @@ const DockerHubMenuItem = () => {
             <FontAwesomeIcon icon={faDocker}/><span>DockerHub</span>
         </div>
     </NavLink>
-}
+};
 
 const SettingsMenuItem = () => {
     return <NavLink to="/settings">
@@ -55,4 +55,4 @@ const SettingsMenuItem = () => {
             <FontAwesomeIcon icon={faCogs}/><span>Settings</span>
         </div>
     </NavLink>
-}
+};

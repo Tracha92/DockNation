@@ -14,6 +14,11 @@
     overflow-y: scroll;
 }
 
+.Networks {
+    display: flex;
+    flex-direction: row;
+}
+
 .NetworkMenuItem {
     min-height: 50px;
     cursor: pointer;

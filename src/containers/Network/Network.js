@@ -1,8 +1,10 @@
 import React from "react";
+import {NavLink, Route, Switch} from "react-router-dom";
 import './Network.css';
+import NetworkList from "./List/NetworkList";
+import NetworkCreate from "./Create/NetworkCreate";
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {NavLink} from "react-router-dom";
 
 export default class Network extends React.Component {
     constructor(props) {
@@ -45,18 +47,18 @@ export default class Network extends React.Component {
 
 const renderLoaded = (items) => {
     return (
-        <div className={'NetworkMenu'}>
-            <div className={'NetworkList'}>
-                {items.map(item => (
-                    <div key={item.name} className={"NetworkMenuItem"}>
-                        <span className={"NetworkMenuItemName"}>{item.name}</span>
-                        <span className={"NetworkMenuItemSubnet"}>{item.subnet}</span>
-                    </div>
-                ))}
+        <div className={'Networks'}>
+            <div className={'NetworkMenu'}>
+                <NetworkList networks={items}/>
+                <NavLink exact to="/networks/create" className={'NetworkCreate'}>
+                    <FontAwesomeIcon icon={faPlusCircle}/>Add new network
+                </NavLink>
             </div>
-            <NavLink to="/networks/create" className={'NetworkCreate'}>
-                <FontAwesomeIcon icon={faPlusCircle}/>Add new network
-            </NavLink>
+            <div className={'NetworkContent'}>
+                <Switch>
+                    <Route exact path="/networks/create" component={NetworkCreate}/>
+                </Switch>
+            </div>
         </div>
     );
-}
+};
