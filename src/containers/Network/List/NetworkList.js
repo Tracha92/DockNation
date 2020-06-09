@@ -7,6 +7,7 @@ export default class NetworkList extends React.Component {
                 <div key={item.name} className={"NetworkMenuItem"}>
                     <span className={"NetworkMenuItemName"}>{item.name}</span>
                     <span className={"NetworkMenuItemSubnet"}>{item.subnet}</span>
+                    <span className={"NetworkMenuItemSubnet"}>{item.gateway}</span>
                 </div>
             ))}
         </div>
