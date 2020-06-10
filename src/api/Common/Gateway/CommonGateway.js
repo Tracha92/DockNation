@@ -1,14 +1,19 @@
-const { exec } = require("child_process");
+const { exec, spawn } = require("child_process");
 
 module.exports = {
-    execShellCommand: function(cmd)
-    {
+    execShellCommand: (cmd) => {
+        this.state = {
+            error: false,
+            data: ""
+        }
+
         return new Promise((resolve, reject) => {
             exec(cmd, (error, stdout, stderr) => {
-                if (error) {
-                    console.warn(error);
+                if (stderr || stderr) {
+                    this.state.error = true;
                 }
-                resolve(stdout ? stdout : stderr);
+                this.state.data = stdout ? stdout : stderr;
+                resolve(this.state);
             });
         });
     },

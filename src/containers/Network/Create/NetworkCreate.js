@@ -21,9 +21,36 @@ export default class NetworkCreate extends React.Component {
     }
 
     handleSubmit(event) {
-        console.log(this.state);
         event.preventDefault();
+
+        let data = {
+            name: this.state.name,
+            gateways: [
+                {gateway: this.state.gateway, subnet: this.state.subnet}
+            ]
+        }
+        this.callApi(data);
     }
+
+    callApi = async (data) => {
+        const response = await fetch('/create-network', {
+            method: 'POST',
+            mode: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        const body = await response.json();
+
+        if (body.error) {
+            alert('Netowrk not created: ' + body.data);
+        } else {
+            alert('Network created');
+        }
+
+        return body;
+    };
 
     render() {
         return <form onSubmit={this.handleSubmit}>

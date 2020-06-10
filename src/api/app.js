@@ -1,11 +1,18 @@
-let express = require("express");
-let app = express();
+const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
+const router = express.Router();
+const cors = require('cors')
 let NetworksGateway = require("./Networks/Gateway/NetworksGateway");
 let ImagesGateway = require("./Images/Gateway/ImagesGateway");
 
 app.listen(3001);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use("/", router);
+app.use(cors());
 
-app.get("/networks", async(req, res) => {
+router.get("/networks", async(req, res) => {
     let networkList = await getList();
     let response = [];
 
@@ -17,12 +24,12 @@ app.get("/networks", async(req, res) => {
     await res.json(response);
 });
 
-app.post("/create-network", async(req, res) => {
-    let result = await createNetwork(req);
+router.post("/create-network", async(req, res) => {
+    let result = await createNetwork(req.body);
     await res.json(result);
 });
 
-app.get("/images", async(req, res) => {
+router.get("/images", async(req, res) => {
     let imageList = await getImageList();
     return res.json(imageList)
 });

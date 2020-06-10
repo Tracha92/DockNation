@@ -17,7 +17,7 @@ module.exports = {
 async function getNetworkList() {
     let networkList = [];
     const res = await execShellCommand('docker network ls --format {{.Name}}');
-    const networkListOutput = res.split('\n');
+    const networkListOutput = res.data.split('\n');
 
     for (let line = 0; line < networkListOutput.length - 1; line++) {
         networkList.push(networkListOutput[line]);
@@ -29,7 +29,7 @@ async function getNetworkList() {
 async function getNetworkDetails(networkName) {
     let networkDetailsOutput;
     const res = await execShellCommand("docker network inspect " + networkName);
-    networkDetailsOutput = JSON.parse(res).pop();
+    networkDetailsOutput = JSON.parse(res.data).pop();
 
     let ipamConfig = networkDetailsOutput.IPAM.Config.pop();
     if (typeof ipamConfig === 'undefined') {
@@ -53,6 +53,5 @@ async function getNetworkDetails(networkName) {
 
 async function createNetwork(createNetworkModel)
 {
-    const res = await execShellCommand(extract(createNetworkModel));
-    console.log(res);
+    return await execShellCommand(extract(createNetworkModel));
 }

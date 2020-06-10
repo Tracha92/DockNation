@@ -5,7 +5,7 @@ module.exports = {
     list: async () => {
         let imagesList = [];
         const res = await execShellCommand(`docker images --format ${parseTemplate(template)}`);
-        const imageListOutput = res.split('\n');
+        const imageListOutput = res.data.split('\n');
         for (let image of imageListOutput) {
             if(image) imagesList.push(JSON.parse(image));
         }
