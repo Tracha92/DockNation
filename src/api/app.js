@@ -3,8 +3,9 @@ const bodyParser = require("body-parser");
 const app = express();
 const router = express.Router();
 const cors = require('cors')
-let NetworksGateway = require("./Networks/Gateway/NetworksGateway");
-let ImagesGateway = require("./Images/Gateway/ImagesGateway");
+const NetworksGateway = require("./Networks/Gateway/NetworksGateway");
+const ImagesGateway = require("./Images/Gateway/ImagesGateway");
+const DockerHubGateway = require("./DockerHub/Gateway/DockerHubGateway");
 
 app.listen(3001);
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,6 +35,14 @@ router.get("/images", async(req, res) => {
     return res.json(imageList)
 });
 
+router.post("/docker-hub", async(req, res) => {
+    const dockerHubList = await getDockerHubList(req.body);
+    return res.json(dockerHubList);
+});
+
+
+
+
 let getImageList = async() => {
     return new Promise((resolve) => {
         resolve(ImagesGateway.list());
@@ -56,4 +65,10 @@ let createNetwork = async(data) => {
     return new Promise((resolve) => {
        resolve(NetworksGateway.create(data));
     });
+}
+
+let getDockerHubList = async(data) => {
+    return new Promise((resolve) => {
+        resolve(DockerHubGateway.list(data));
+    })
 }
