@@ -7,7 +7,7 @@ module.exports = {
 }
 
 async function getDockerHubList(name) {
-    const res = await execShellCommand('docker search ' + name + ' --format "{{json .}},"');
+    const res = await execShellCommand('docker search ' + name + ' --no-trunc --format "{{json .}},"');
     if (res.data === "") {
         return {};
     }
